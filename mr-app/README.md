@@ -1,16 +1,38 @@
-# React + Vite
+# 🎬 MR App (Movie Review)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, modern Movie Review web application built with **React**, **Vite**, and **Tailwind CSS**. This application communicates directly with **The Movie Database (TMDB) API** to fetch live, up-to-date cinema data, offering users an immersive browsing experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Key Features
 
-## React Compiler
+- **Live TMDB Integration:** Fetches real-time data for trending, popular, and top-rated movies.
+- **Dynamic Search Architecture:** Instantaneous title searching utilizing TMDB's robust discovery endpoints.
+- **Tailwind-Powered UI:** A fully responsive, dark-mode-first layout optimized for mobile, tablet, and desktop screens.
+- **State Management:** Handled cleanly using React Hooks (`useState`, `useEffect`) and Context API for global application states.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack & Architecture
 
-## Expanding the ESLint configuration
+- **Frontend Framework:** React (Vite-bundler for blazing-fast HMR)
+- **Styling Engine:** Tailwind CSS
+- **Data Fetching:** Axios / Native Fetch API
+- **Database/API Source:** TMDB (The Movie Database) API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📦 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+Make sure you have Node.js installed on your machine. You will also need a free API token from [The Movie Database (TMDB)](https://www.themoviedb.org/).
+
+### Installation & Local Setup
+
+1. **Clone the repository:**
+
+```bash
+   git clone [https://github.com/Falsetto-bon/movie-review-app.git](https://github.com/Falsetto-bon/movie-review-app.git)
+   cd mr-app
+```
