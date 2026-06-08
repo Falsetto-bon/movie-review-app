@@ -36,3 +36,12 @@ Make sure you have Node.js installed on your machine. You will also need a free 
    git clone [https://github.com/Falsetto-bon/movie-review-app.git](https://github.com/Falsetto-bon/movie-review-app.git)
    cd mr-app
 ```
+---
+
+## 💬 Suggestions & Feedback
+
+This project is a work in progress, and I am always looking to learn and improve my coding skills! If you have any suggestions, critiques, or advice on how I can optimize the code:
+- Please feel free to open an **Issue** or submit a **Pull Request**.
+- All I ask is that you share your thoughts in a **polite, constructive, and simple way** so I can easily understand and apply the feedback. 
+
+Thank you for checking out my Movie Review App! 🎬
