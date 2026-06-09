@@ -1,17 +1,20 @@
 import MovieCard from "../components/MovieCard";
 import { useState, useEffect } from "react";
-import { searchMovie, fetchPopularMovies } from "../services/api";
+import { searchMovie, fetchMovies } from "../services/api";
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [category, setCategory] = useState("popular");
 
   useEffect(() => {
-    const loadPopularMovies = async () => {
+    if (searchQuery.trim()) return;
+    const loadMovies = async () => {
       try {
-        const popularMovies = await fetchPopularMovies();
-        setMovies(popularMovies);
+        setLoading(true);
+        const movies = await fetchMovies(category);
+        setMovies(movies);
       } catch (err) {
         setError("Failed to load movies...");
         console.log(err);
@@ -19,8 +22,8 @@ function Home() {
         setLoading(false);
       }
     };
-    loadPopularMovies();
-  }, []);
+    loadMovies();
+  }, [searchQuery, category]);
   const handleSearch = async (e) => {
     e?.preventDefault();
     try {
@@ -63,6 +66,11 @@ function Home() {
           Search
         </button>
       </form>
+      <div className="flex gap-3 mb-6">
+        <button className={"category-btn" + (category === "popular" ? " active" : "")} onClick={() => setCategory("popular")}>Popular</button>
+        <button className={"category-btn" + (category === "upcoming" ? " active" : "")} onClick={() => setCategory("upcoming")}>Upcoming</button>
+        <button className={"category-btn" + (category === "top_rated" ? " active" : "")} onClick={() => setCategory("top_rated")}>Top Rated</button>
+      </div>
       {error && <div>{error}</div>}
       {loading ? (
         <div>Loading...</div>
