@@ -73,7 +73,7 @@ function Home() {
       </div>
       {error && <div>{error}</div>}
       {loading ? (
-        <div>Loading...</div>
+        <div className="text-2xl text-white text-center pt-8">Loading...</div>
       ) : (
         <div className="flex flex-wrap justify-center">
           {movies.map((movie) => (

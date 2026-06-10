@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useMovieContext } from "../context/MovieContext";
-
+import { Link } from "react-router-dom";
 
 function MovieCard({ movie = {} }) {
   const { isFavorite, addFavorite, removeFavorite } = useMovieContext();
@@ -26,7 +26,6 @@ function MovieCard({ movie = {} }) {
             loading="lazy"
           />
 
-          
           <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 
           <button
@@ -42,9 +41,11 @@ function MovieCard({ movie = {} }) {
           </button>
 
           <div className="absolute bottom-0 left-0 right-0 p-4">
-            <h3 className="text-lg sm:text-xl font-semibold text-zinc-100 line-clamp-2">
-              {movie.title}
-            </h3>
+            <Link to={`/movie/${movie.id}`}>
+              <h3 className="text-lg sm:text-xl font-semibold text-zinc-100 line-clamp-2">
+                {movie.title}
+              </h3>
+            </Link>
             <p className="text-xs text-zinc-300 mt-1">
               {movie.release_date?.split("-")[0]}
             </p>
