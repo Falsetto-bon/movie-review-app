@@ -1,0 +1,5 @@
+node_modules/
+mr-app/node_modules/
+.env
+mr-app/.env
+.env.*
