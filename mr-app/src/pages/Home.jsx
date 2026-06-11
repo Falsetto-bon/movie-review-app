@@ -1,20 +1,22 @@
 import MediaCard from "../components/MediaCard";
 import { useState, useEffect } from "react";
-import { searchMulti, fetchMovies } from "../services/api";
+import { fetchMovies } from "../services/api";
+
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [category, setCategory] = useState("popular");
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
-    if (searchQuery.trim()) return;
     const loadMovies = async () => {
       try {
         setLoading(true);
-        const movies = await fetchMovies(category);
-        setMovies(movies);
+        setError(null);
+        const data = await fetchMovies(category);
+        const formattedData = data.map((movie) => ({ ...movie, media_type: "movie" }));
+        setMovies(formattedData);
       } catch (err) {
         setError("Failed to load movies...");
         console.log(err);
@@ -23,14 +25,16 @@ function Home() {
       }
     };
     loadMovies();
-  }, [searchQuery, category]);
+  }, [category]);
   const handleSearch = async (e) => {
     e?.preventDefault();
     try {
       if (!searchQuery.trim()) return;
 
       setLoading(true);
-      const filteredMovies = movies.filter((item) => item.media_type === "movie");
+      const filteredMovies = movies.filter(
+        (item) => item.media_type === "movie",
+      );
       setSearchQuery(filteredMovies);
       setError(null);
     } catch (err) {

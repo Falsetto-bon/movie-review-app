@@ -19,34 +19,18 @@ export const fetchMovieDetails = async (movieId) => {
 };
 
 //TV SHOWS
+export const fetchTVShows = async (category) => {
+  const response = await fetch(
+    `${BASE_URL}/tv/${category}?api_key=${API_KEY}&language=en-US&page=1`,
+  );
+  const data = await response.json();
+  return data.results;
+};
+
 export const fetchTvDetails = async (tvId) => {
   const response = await fetch(`${BASE_URL}/tv/${tvId}?api_key=${API_KEY}`);
   const data = await response.json();
   return data;
-};
-
-export const getPopularTvShows = async () => {
-  const response = await fetch(
-    `${BASE_URL}/tv/popular?api_key=${API_KEY}&language=en-US&page=1`,
-  );
-  const data = await response.json();
-  return data.results; // Returns the array of TV show objects
-};
-
-export const getTopRatedTvShows = async () => {
-  const response = await fetch(
-    `${BASE_URL}/tv/top_rated?api_key=${API_KEY}&language=en-US&page=1`,
-  );
-  const data = await response.json();
-  return data.results;
-};
-
-export const getTrendingTvShows = async () => {
-  const response = await fetch(
-    `${BASE_URL}/trending/tv/week?api_key=${API_KEY}`,
-  );
-  const data = await response.json();
-  return data.results;
 };
 
 export const searchMulti = async (query) => {

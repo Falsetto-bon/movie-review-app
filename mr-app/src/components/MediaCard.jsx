@@ -49,9 +49,7 @@ function MediaCard({ media = {} }) {
                 {title}
               </h3>
             </Link>
-            <p className="text-xs text-zinc-300 mt-1">
-              {year   }
-            </p>
+            <p className="text-xs text-zinc-300 mt-1">{year}</p>
           </div>
         </div>
       </div>

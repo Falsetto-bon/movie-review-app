@@ -1,28 +1,25 @@
 import MediaCard from "../components/MediaCard";
 import { useState, useEffect } from "react";
-import { searchMulti, getPopularTvShows, getTopRatedTvShows, getTrendingTvShows } from "../services/api";
+import { fetchTVShows } from "../services/api";
 
 function TVShows() {
-  const [trending, setTrending] = useState([]);
-  const [popular, setPopular] = useState([]);
-  const [topRated, setTopRated] = useState([]);
-
   const [searchQuery, setSearchQuery] = useState("");
+  const [tvShows, setTvShows] = useState([]);
+  const [category, setCategory] = useState("popular");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     if (searchQuery.trim()) return;
     const loadTvShows = async () => {
       try {
         setLoading(true);
-        const [trendingData, popularData, topRatedData] = await Promise.all([
-          getTrendingTvShows(),
-          getPopularTvShows(),
-          getTopRatedTvShows(),
-        ]);
-        setTrending(trendingData);
-        setPopular(popularData);
-        setTopRated(topRatedData);
+        const data = await fetchTVShows(category);
+        const formattedData = data.map((show) => ({
+          ...show,
+          media_type: "tv",
+        }));
+        setTvShows(formattedData);
       } catch (err) {
         setError("Failed to load TV Shows...");
         console.log(err);
@@ -31,7 +28,7 @@ function TVShows() {
       }
     };
     loadTvShows();
-  }, [searchQuery]);
+  }, [category]);
   const handleSearch = async (e) => {
     e?.preventDefault();
     try {
@@ -49,25 +46,42 @@ function TVShows() {
     }
   };
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center p-6 w-full">
+      {/* Category Toggle Buttons */}
+      <div className="flex gap-3 mb-6">
+        <button
+          className={`category-btn ${category === "popular" ? "active" : ""}`}
+          onClick={() => setCategory("popular")}
+        >
+          Popular
+        </button>
+        <button
+          className={`category-btn ${category === "on_the_air" ? "active" : ""}`}
+          onClick={() => setCategory("on_the_air")} // Note: TMDB uses "on_the_air" instead of "upcoming" for TV shows
+        >
+          On The Air
+        </button>
+        <button
+          className={`category-btn ${category === "top_rated" ? "active" : ""}`}
+          onClick={() => setCategory("top_rated")}
+        >
+          Top Rated
+        </button>
+      </div>
+
+
       {error && (
-        <div className="text-2xl text-white text-center pt-8">{error}</div>
+        <div className="text-2xl text-red-500 text-center pt-8">{error}</div>
       )}
+
       {loading ? (
         <div className="text-2xl text-white text-center pt-8">Loading...</div>
       ) : (
-        <div className="flex flex-wrap justify-center">
-          {popular.map((p) => (
-            <MediaCard key={p.id} media={p} />
-          ))}
-          {trending.map((p) => (
-            <MediaCard key={p.id} media={p} />
-          ))}
-          {topRated.map((p) => (
-            <MediaCard key={p.id} media={p} />
+        <div className="flex flex-wrap justify-center ">
+          {tvShows.map((tvShow) => (
+            <MediaCard key={tvShow.id} media={tvShow} />
           ))}
         </div>
-        
       )}
     </div>
   );
