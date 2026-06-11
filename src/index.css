@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #1a1718;
+  color: #fff;
+}
+
+@layer components {
+  .category-btn {
+    @apply bg-[#1a1718] text-zinc-100 px-6 py-2 rounded-full border border-zinc-700 text-sm tracking-[0.2em] uppercase hover:bg-zinc-100 hover:text-[#1a1718] cursor-pointer;
+  }
+  .active {
+    @apply bg-zinc-100 text-[#1a1718];
+  }
+}
