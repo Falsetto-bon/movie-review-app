@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 ```markdown
 # 🎬 MR App (Movie & TV Show Hub)
 
 A sleek, modern media tracking web application built with **React**, **Vite**, and **Tailwind CSS**. This application communicates directly with **The Movie Database (TMDB) API** to fetch live cinema and television data, offering an immersive browsing experience.
+=======
+# 🎬 MR App (Movie Review)
+
+A sleek, modern Movie Review web application built with **React**, **Vite**, and **Tailwind CSS**. This application communicates directly with **The Movie Database (TMDB) API** to fetch live, up-to-date cinema data, offering users an immersive browsing experience.
+>>>>>>> b5b9d687b93611689856150eb77914e2633f483c
 
 ---
 
 ## 🚀 Key Features
 
+<<<<<<< HEAD
 - **Live TMDB Integration:** Fetches real-time, concurrent data for trending, popular, and top-rated content using optimized `Promise.all` requests.
 - **Global Search Navigation:** Moved the search bar globally into the `Navbar` to allow instant content exploration from any route.
 - **Polymorphic Architecture:** Upgraded `MediaCard` and `MediaDetails` components to dynamically share logic and layout between both **Movies** and **TV Series** seamlessly.
@@ -30,11 +37,29 @@ The application minimizes heavy state management libraries by leveraging native 
 
 - **Polymorphic Routing Pattern:** Uses dynamic parameters (`/:type/:id`) to map URL context directly to API operations, serving two data schemas from a single view.
 - **Lazy Initialization State:** Prevents initialization flash or localStorage race-conditions by parsing client-side memory storage inside the hook initializer stage.
+=======
+- **Live TMDB Integration:** Fetches real-time data for trending, popular, and top-rated movies.
+- **Dynamic Search Architecture:** Instantaneous title searching utilizing TMDB's robust discovery endpoints.
+- **Tailwind-Powered UI:** A fully responsive, dark-mode-first layout optimized for mobile, tablet, and desktop screens.
+- **State Management:** Handled cleanly using React Hooks (`useState`, `useEffect`) and Context API for global application states.
+
+## 🛠️ Tech Stack & Architecture
+
+- **Frontend Framework:** React (Vite-bundler for blazing-fast HMR)
+- **Styling Engine:** Tailwind CSS
+- **Data Fetching:** Axios / Native Fetch API
+- **Database/API Source:** TMDB (The Movie Database) API
+>>>>>>> b5b9d687b93611689856150eb77914e2633f483c
 
 ---
 
 ## 📦 Getting Started
 
+<<<<<<< HEAD
+=======
+To get a local copy up and running, follow these simple steps.
+
+>>>>>>> b5b9d687b93611689856150eb77914e2633f483c
 ### Prerequisites
 
 Make sure you have Node.js installed on your machine. You will also need a free API token from [The Movie Database (TMDB)](https://www.themoviedb.org/).
@@ -42,6 +67,7 @@ Make sure you have Node.js installed on your machine. You will also need a free 
 ### Installation & Local Setup
 
 1. **Clone the repository:**
+<<<<<<< HEAD
 ```bash
    git clone [https://github.com/Falsetto-bon/movie-review-app.git](https://github.com/Falsetto-bon/movie-review-app.git)
    cd mr-app
@@ -77,11 +103,19 @@ Create a `.env` file in the root directory and add your TMDB API Key:
 
 ```
 
+=======
+
+```bash
+   git clone [https://github.com/Falsetto-bon/movie-review-app.git](https://github.com/Falsetto-bon/movie-review-app.git)
+   cd mr-app
+```
+>>>>>>> b5b9d687b93611689856150eb77914e2633f483c
 ---
 
 ## 💬 Suggestions & Feedback
 
 This project is a work in progress, and I am always looking to learn and improve my coding skills! If you have any suggestions, critiques, or advice on how I can optimize the code:
+<<<<<<< HEAD
 
 * Please feel free to open an **Issue** or submit a **Pull Request**.
 * All I ask is that you share your thoughts in a **polite, constructive, and simple way** so I can easily understand and apply the feedback.
@@ -91,3 +125,9 @@ Thank you for checking out my Movie & TV Show Hub App! 🎬
 ```
 
 ```
+=======
+- Please feel free to open an **Issue** or submit a **Pull Request**.
+- All I ask is that you share your thoughts in a **polite, constructive, and simple way** so I can easily understand and apply the feedback. 
+
+Thank you for checking out my Movie Review App! 🎬
+>>>>>>> b5b9d687b93611689856150eb77914e2633f483c
