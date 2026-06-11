@@ -1,9 +1,4 @@
 {
-<<<<<<< HEAD
-  "dependencies": {
-    "@tailwindcss/vite": "^4.3.0",
-    "tailwindcss": "^4.3.0"
-=======
   "name": "mr-app",
   "private": true,
   "version": "0.0.0",
@@ -30,6 +25,5 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
     "vite": "^8.0.12"
->>>>>>> b5b9d687b93611689856150eb77914e2633f483c
   }
 }
